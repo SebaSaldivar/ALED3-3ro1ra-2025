@@ -1,0 +1,24 @@
+<div class="row g-4">
+  <div class="col-12 text-center text-muted" *ngIf="personajes.length === 0">
+    <p>No hay personajes para mostrar.</p>
+  </div>
+
+  <div class="col-md-4" *ngFor="let p of personajes">
+    <div class="card h-100 shadow-sm border-0" [ngClass]="{ 'opaco': !p.activo }">
+      <img [src]="'assets/img/' + p.foto" class="card-img-top" [alt]="p.nombre">
+      <div class="card-body">
+        <h5 class="card-title">{{ p.nombre | uppercase }}</h5>
+        <p class="card-text">
+          <strong>Videojuego:</strong> {{ p.videojuego }}<br>
+          <strong>Creación:</strong> {{ p.fechaCreacion | date:'dd/MM/yyyy' }}<br>
+          <strong>Popularidad:</strong> {{ p.popularidad | percent:'1.0-0' }}
+        </p>
+      </div>
+      <div class="card-footer bg-transparent border-0">
+        <span class="badge" [ngClass]="p.activo ? 'bg-success' : 'bg-secondary'">
+          {{ p.activo ? 'Activo' : 'Inactivo' }}
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
