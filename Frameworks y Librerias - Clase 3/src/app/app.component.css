@@ -1,0 +1,21 @@
+.container {
+    margin-top: 50px;
+    text-align: center;
+  }
+  
+  .boton-con-tooltip {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .boton-con-tooltip:hover {
+    background-color: green;
+  }
+  
+  
