@@ -1,0 +1,107 @@
+<div class="col-4" style="margin-left: 1.5rem; margin-top: 1.5rem;">
+    <h5>Ingresar</h5>
+    <hr>
+    <form [formGroup]="formularioReactivo" (ngSubmit)="formularioLogin()">
+        <!-- Campo Correo Electrónico -->
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Correo Electrónico</label>
+            <input formControlName="correo" type="email" class="form-control" id="exampleInputEmail1">
+
+            @if ((formularioReactivo.controls['correo'].touched || formularioReactivo.controls['correo'].dirty)
+                && formularioReactivo.controls['correo'].invalid) {
+
+                @if (formularioReactivo.controls['correo'].errors?.['required']) {
+                    <div class="invalido">Campo obligatorio</div>
+                }
+                @if (formularioReactivo.controls['correo'].errors?.['pattern']) {
+                    <div class="invalido">El correo tiene un formato incorrecto, ej: example&#64;dom.com</div>
+                }
+            }
+
+            @if (formularioReactivo.controls['correo'].touched && formularioReactivo.controls['correo'].valid) {
+                <div class="valido">Campo correcto</div>
+            }
+        </div>
+
+        <!-- Campo Contraseña -->
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+            <input formControlName="contrasena" type="password" class="form-control" id="exampleInputPassword1">
+
+            @if ((formularioReactivo.controls['contrasena'].touched || formularioReactivo.controls['contrasena'].dirty)
+                && formularioReactivo.controls['contrasena'].invalid) {
+
+                @if (formularioReactivo.controls['contrasena'].errors?.['required']) {
+                    <div class="invalido">Campo obligatorio</div>
+                }
+                @if (formularioReactivo.controls['contrasena'].errors?.['minlength']
+                    || formularioReactivo.controls['contrasena'].errors?.['maxlength']) {
+                    <div class="invalido">La contraseña debe tener entre 3 y 15 caracteres</div>
+                }
+            }
+
+            @if (formularioReactivo.controls['contrasena'].touched && formularioReactivo.controls['contrasena'].valid) {
+                <div class="valido">Campo correcto</div>
+            }
+        </div>
+
+        <!-- Campo Recordar -->
+        <div class="mb-3 form-check">
+            <input formControlName="recordar" type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">Recordar</label>
+        </div>
+
+        <!-- Botones de acción -->
+        <div class="mb-3">
+            <button type="submit" class="btn btn-primary me-2">Ingresar</button>
+            <button type="reset" class="btn btn-primary">Borrar</button>
+        </div>
+
+        <!-- Vista de datos -->
+        <pre>{{ formularioReactivo.value | json }}</pre>
+    </form>
+</div>
+
+
+<!-- Ejemplo con uso de *ngIf con notación tradicional: -->
+<!-- <div class="col-4" style="margin-left: 1.5rem; margin-top: 1.5rem;">
+    <h5>Ingresar</h5>
+    <hr>
+    <form [formGroup]="formularioReactivo" (ngSubmit)="formularioLogin()">
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Correo Electrónico</label>
+            <input formControlName="correo" type="email" class="form-control" id="exampleInputEmail1"
+                aria-describedby="emailHelp">
+            <div class="valido"
+                *ngIf="formularioReactivo.controls['contrasena'].dirty && !formularioReactivo.controls['correo'].errors?.['pattern'] && !formularioReactivo.controls['correo'].errors?.['required']">
+                Campo correcto</div>
+            <div class="invalido"
+                *ngIf="formularioReactivo.controls['correo'].dirty && formularioReactivo.controls['correo'].errors?.['required']">
+                Campo obligatorio</div>
+            <div class="invalido"
+                *ngIf="formularioReactivo.controls['correo'].dirty && formularioReactivo.controls['correo'].errors?.['pattern']">
+                El campo correo tiene un formato incorrecto</div>
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+            <input formControlName="contrasena" type="password" class="form-control" id="exampleInputPassword1">
+            <div class="valido"
+                *ngIf="formularioReactivo.controls['contrasena'].dirty && formularioReactivo.controls['contrasena'].valid">
+                Campo correcto</div>
+            <div class="invalido"
+                *ngIf="formularioReactivo.controls['contrasena'].dirty && formularioReactivo.controls['contrasena'].errors?.['required']">
+                Campo obligatorio</div>
+            <div class="invalido"
+                *ngIf="formularioReactivo.controls['contrasena'].dirty && formularioReactivo.controls['contrasena'].errors?.['minlength'] || formularioReactivo.controls['contrasena'].errors?.['maxlength']">
+                La contraseña debe tener entre 3 y 15 caracteres</div>
+        </div>
+        <div class="mb-3 form-check">
+            <input formControlName="recordar" type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">Recordar</label>
+        </div>
+        <div class="mb-3">
+            <button type="submit" class="btn btn-primary me-2">Ingresar</button>
+            <button type="reset" class="btn btn-primary">Borrar</button>
+        </div>
+    </form>
+</div>  -->
