@@ -1,0 +1,19 @@
+<div class="container mt-4">
+  <h2 class="text-success mb-3">Listado de Frutas</h2>
+  <table class="table table-bordered table-striped">
+    <thead class="table-success">
+      <tr>
+        <th>Nombre</th>
+        <th>Color</th>
+        <th>Precio ($)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let fruta of frutas">
+        <td>{{ fruta.nombre }}</td>
+        <td>{{ fruta.color }}</td>
+        <td>{{ fruta.precio }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

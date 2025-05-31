@@ -1,0 +1,15 @@
+<div class="container mt-4">
+  <h3 class="text-success">Verduras</h3>
+  <div class="row">
+    <div class="col-md-6 mb-3" *ngFor="let verdura of verduras">
+      <div class="card">
+        <img [src]="verdura.imagen" class="card-img-top" [alt]="verdura.nombre" width="130px" height="350px">
+        <div class="card-body">
+          <h5 class="card-title">{{ verdura.nombre }}</h5>
+          <p class="card-text">Color: {{ verdura.color }}</p>
+          <p class="card-text">Precio: ${{ verdura.precio }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-success">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Frutería | Servicios Múltiples con UseClass</a>
+    <button class="btn btn-light ms-auto" (click)="mostrarFrutas = !mostrarFrutas">
+      Cambiar a {{ mostrarFrutas ? 'Verduras' : 'Frutas' }}
+    </button>
+  </div>
+</nav>
+
+<app-frutas *ngIf="mostrarFrutas"></app-frutas>
+<app-verduras *ngIf="!mostrarFrutas"></app-verduras>
