@@ -1,0 +1,49 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+  <div class="container-fluid">
+    <a class="navbar-brand" [routerLink]="['/inicio']">PymeShop</a>
+
+    <button class="navbar-toggler" type="button"
+            data-bs-toggle="collapse" data-bs-target="#mainNav"
+            aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link"
+             [routerLink]="['/inicio']"
+             routerLinkActive="active"
+             [routerLinkActiveOptions]="{ exact: true }">
+            Inicio
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/producto']" routerLinkActive="active">Productos</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/contacto']" routerLinkActive="active">Contacto</a>
+        </li>
+
+        <!-- SOLO para rol admin -->
+        <li class="nav-item" *ngIf="esAdmin()">
+          <a class="nav-link" [routerLink]="['/admin']" routerLinkActive="active">Admin</a>
+        </li>
+      </ul>
+
+      <div class="d-flex">
+
+        <button type="button" class="btn btn-link text-danger text-decoration-none"
+                (click)="cerrarSesion()">
+          Cerrar sesión
+        </button>
+
+
+      </div>
+    </div>
+  </div>
+</nav>
+
+<router-outlet></router-outlet>
