@@ -13,7 +13,7 @@ import { RouterOutlet } from "@angular/router"; // <- IMPORTAR FormsModule
 })
 
 export class AppComponent {
-  title = 'FirstProyect';
+  title = 'GameDataRuteo';
 
   nombre: string = '';  // Modelo de datos que se vincula con el input
 

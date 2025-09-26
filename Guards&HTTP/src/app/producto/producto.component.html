@@ -1,7 +1,9 @@
 <div class="container py-3">
   <h1 class="h4 mb-3">Productos</h1>
 
-  <div class="row g-3">
+  <p *ngIf="error" class="text-danger">{{ error }}</p>
+
+  <div class="row g-3" *ngIf="!error">
     <div class="col-12 col-md-6 col-lg-4" *ngFor="let p of productos">
       <div class="card h-100">
         <div class="card-body">

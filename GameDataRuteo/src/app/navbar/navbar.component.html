@@ -6,23 +6,13 @@
   <!-- Enlaces de navegación -->
   <ul class="navbar-nav ms-3">
     <li class="nav-item">
-      <a class="nav-link"
-         [routerLink]="['/inicio']"
-         aria-current="page">
-        Inicio
-      </a>
+      <a class="nav-link" [routerLink]="['/inicio']" aria-current="page"> Inicio </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link"
-         [routerLink]="['/personajes']">
-        Personajes
-      </a>
+      <a class="nav-link" [routerLink]="['/personajes']"> Personajes </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link"
-         [routerLink]="['/about']">
-        Acerca de
-      </a>
+      <a class="nav-link" [routerLink]="['/about']"> Acerca de </a>
     </li>
   </ul>
 
@@ -34,6 +24,17 @@
       placeholder="Buscar personaje..."
       [(ngModel)]="busqueda"
     />
-    <span class="text-light small">Buscando: <strong>{{ busqueda }}</strong></span>
+    <span class="text-light small me-3">Buscando: <strong>{{ busqueda }}</strong></span>
+
+    <!-- 🔽 Bloque de sesión -->
+    <ng-container *ngIf="isLoggedIn(); else sinSesion">
+      <span class="text-light small me-2">
+        {{ userEmail() }} ({{ userRole() }})
+      </span>
+      <button class="btn btn-outline-light btn-sm" (click)="logout()">Salir</button>
+    </ng-container>
+    <ng-template #sinSesion>
+      <a class="btn btn-outline-light btn-sm" [routerLink]="['/login']">Login</a>
+    </ng-template>
   </div>
 </nav>

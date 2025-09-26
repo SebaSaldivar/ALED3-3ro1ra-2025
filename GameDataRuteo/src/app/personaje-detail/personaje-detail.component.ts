@@ -10,6 +10,7 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
   styleUrls: ['./personaje-detail.component.css']
 })
 export class PersonajeDetailComponent {
+  
   id: number | null = null;
 
   constructor(private route: ActivatedRoute) {
@@ -17,6 +18,14 @@ export class PersonajeDetailComponent {
     this.route.params.subscribe(params => {
       this.id = params['id'] ? Number(params['id']) : null;
     });
+    /*
+      if (params['id']) {
+        this.id = Number(params['id']);
+      } else {
+        this.id = null;
+      }
+
+    */
   }
 }
 
